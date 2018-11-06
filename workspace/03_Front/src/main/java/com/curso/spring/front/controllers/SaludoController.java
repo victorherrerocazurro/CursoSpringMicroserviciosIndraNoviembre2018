@@ -1,5 +1,6 @@
 package com.curso.spring.front.controllers;
 
+import java.net.URISyntaxException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestClientException;
 
 import com.curso.spring.front.dto.Saludo;
 import com.curso.spring.front.service.SaludoService;
@@ -20,7 +22,7 @@ public class SaludoController {
 	private SaludoService service;//referencia a un objeto
 	
 	@PostMapping
-	public String altaSaludo(Saludo saludo) {
+	public String altaSaludo(Saludo saludo) throws RestClientException, URISyntaxException {
 		service.altaSaludo(saludo);
 		return null;
 	}
@@ -31,7 +33,7 @@ public class SaludoController {
 	}
 	
 	@GetMapping
-	public String calculoSaludo(Map<String, Object> model) {
+	public String calculoSaludo(Map<String, Object> model) throws RestClientException, URISyntaxException {
 		Saludo calculoSaludo = service.calculoSaludo();
 		model.put("saludo", calculoSaludo);
 		return "detalleSaludo";
