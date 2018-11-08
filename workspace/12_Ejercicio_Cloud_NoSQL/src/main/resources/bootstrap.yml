@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: nosql
+  cloud:
+    config:
+      fail-fast: true
+      uri: http://localhost:9080
+  rabbitmq:
+    host: localhost
+    port: 5672

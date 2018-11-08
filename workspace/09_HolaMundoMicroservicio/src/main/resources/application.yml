@@ -8,6 +8,6 @@ spring:
     name: holamundo
 
 server:
-  port: 8096
+  port: 8098
   
 message: Hola Mundo!!!!

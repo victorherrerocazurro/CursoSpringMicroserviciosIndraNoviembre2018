@@ -1,0 +1,13 @@
+server:
+  port: 8280
+
+spring:
+  application:
+    name: sql
+  cloud:
+    config:
+      fail-fast: true
+      uri: http://localhost:9080
+  rabbitmq:
+    host: localhost
+    port: 5672
